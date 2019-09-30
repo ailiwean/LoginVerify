@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/centerText"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="点击我" />
+
+        <TextView
+            android:id="@+id/centerText2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="点击我" />
+
+        <TextView
+            android:id="@+id/centerText3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="点击我" />
+
+        <TextView
+            android:id="@+id/centerText4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="点击我" />
+
+        <TextView
+            android:id="@+id/centerText5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="点击我" />
+
+        <TextView
+            android:id="@+id/centerText6"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="点击我" />
+
+        <TextView
+            android:id="@+id/centerText7"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="点击我" />
+
+        <TextView
+            android:id="@+id/centerText8"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="点击我" />
+
+        <TextView
+            android:id="@+id/centerText9"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="点击我" />
+
+        <TextView
+            android:id="@+id/centerTex10"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="点击我" />
+
+        <TextView
+            android:id="@+id/centerText11"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="点击我" />
+
+        <TextView
+            android:id="@+id/centerText12"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="点击我" />
+
+        <TextView
+            android:id="@+id/centerText13"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="点击我" />
+
+        <TextView
+            android:id="@+id/centerText14"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="点击我" />
+
+    </LinearLayout>
+
+</ScrollView>
