@@ -69,7 +69,7 @@ public class MyLogin implements LoginChunk {
 	}
 ```
 ```
-	        implementation 'com.github.ailiwean:LoginVerify:Tag'
+	        implementation 'com.github.ailiwean:LoginVerify:1.0.0'
 
 ```
 完事。
