@@ -40,7 +40,7 @@ public class LoginVerify {
         interceptAdapterItem(adapter);
     }
 
-    private void registerAdapterChild(BaseQuickAdapter adapter) {
+    public void registerAdapterChild(BaseQuickAdapter adapter) {
 
         if (loginChunk == null)
             return;

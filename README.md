@@ -1,3 +1,4 @@
+
 # LoginVerify
 非侵入式对点击事件进行验证登陆，延迟反射，避免拉长UI响应。 极度轻量。
 
@@ -72,6 +73,18 @@ public class MyLogin implements LoginChunk {
 	        implementation 'com.github.ailiwean:LoginVerify:1.0.0'
 
 ```
+##### 第三方库
+###### BaseRecyclerViewAdapterHelper
+目前也支持对该库的Item，以及Child点击事件的拦截
+
+```
+.registerApapter(BaseQuickAdapter adapter)
+```
+
+```
+.registerAdapterChild(BaseQuickAdapter adapter)
+```
+
 完事。
 
 

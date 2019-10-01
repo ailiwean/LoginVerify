@@ -7,10 +7,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.ailiwean.lib.AnLoginVerify;
 import com.ailiwean.lib.LoginChunk;
 import com.ailiwean.lib.LoginVerify;
-import com.ailiwean.lib.utils.AnLoginVerify;
-import com.ailiwean.lib.utils.LoginDunk;
+import com.ailiwean.lib.annotations.LoginDunk;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -130,6 +131,8 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "我要去登陆", Toast.LENGTH_SHORT).show();
             }
         }).registerView(centerView, centerView2, centerView3, centerView4, centerView5, centerView6, centerView7);
+
+
     }
 
     @Override
