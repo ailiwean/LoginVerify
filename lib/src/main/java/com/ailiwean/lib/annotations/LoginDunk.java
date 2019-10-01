@@ -1,4 +1,4 @@
-package com.ailiwean.lib.utils;
+package com.ailiwean.lib.annotations;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

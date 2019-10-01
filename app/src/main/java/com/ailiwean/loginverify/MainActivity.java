@@ -118,17 +118,18 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 //
-//        LoginVerify.get(new LoginChunk() {
-//            @Override
-//            public boolean verifyLogin() {
-//                return false;
-//            }
-//
-//            @Override
-//            public void goLogin() {
-//                Toast.makeText(MainActivity.this, "我要去登陆", Toast.LENGTH_SHORT).show();
-//            }
-//        }).registerView(centerView, centerView2, centerView3, centerView4, centerView5, centerView6, centerView7);
+
+        LoginVerify.get(new LoginChunk() {
+            @Override
+            public boolean verifyLogin() {
+                return false;
+            }
+
+            @Override
+            public void goLogin() {
+                Toast.makeText(MainActivity.this, "我要去登陆", Toast.LENGTH_SHORT).show();
+            }
+        }).registerView(centerView, centerView2, centerView3, centerView4, centerView5, centerView6, centerView7);
     }
 
     @Override

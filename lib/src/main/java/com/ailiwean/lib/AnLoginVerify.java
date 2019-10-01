@@ -1,13 +1,11 @@
-package com.ailiwean.lib.utils;
+package com.ailiwean.lib;
 
 import android.app.Activity;
-import android.util.Log;
 import android.view.View;
 
 import androidx.fragment.app.Fragment;
 
-import com.ailiwean.lib.LoginChunk;
-import com.ailiwean.lib.LoginVerify;
+import com.ailiwean.lib.annotations.LoginDunk;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
@@ -83,7 +81,7 @@ public class AnLoginVerify extends LoginVerify {
                 continue;
 
             field.setAccessible(true);
-            
+
             signViews.add((View) field.get(instance));
         }
 
