@@ -69,10 +69,12 @@ public class MyLogin implements LoginChunk {
 		}
 	}
 ```
+ 
 ```
-	        implementation 'com.github.ailiwean:LoginVerify:1.0.0'
+    implementation 'com.github.ailiwean:LoginVerify:1.0.1'
 
 ```
+
 ##### 第三方库
 ###### BaseRecyclerViewAdapterHelper
 目前也支持对该库的Item，以及Child点击事件的拦截
@@ -80,7 +82,6 @@ public class MyLogin implements LoginChunk {
 ```
 .registerApapter(BaseQuickAdapter adapter)
 ```
-
 ```
 .registerAdapterChild(BaseQuickAdapter adapter)
 ```
