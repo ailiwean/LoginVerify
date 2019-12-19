@@ -18,4 +18,9 @@ public class MyLogin implements LoginChunk {
 
     }
 
+    @Override
+    public long breakTime() {
+        return 1000;
+    }
+
 }

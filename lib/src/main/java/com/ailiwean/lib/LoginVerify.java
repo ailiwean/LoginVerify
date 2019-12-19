@@ -7,13 +7,9 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 
 public class LoginVerify {
 
+    public static final int KEY = -100001;
+
     public static LoginVerify get(LoginChunk loginChunk) {
-        if (loginChunk == null)
-            try {
-                throw new Exception("LoginChunk does not null");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         return new LoginVerify(loginChunk);
     }
 
@@ -23,29 +19,47 @@ public class LoginVerify {
         this.loginChunk = loginChunk;
     }
 
-    public void registerView(View... views) {
+    public void registerView(final View... views) {
 
         if (loginChunk == null)
             return;
 
-        for (View v : views)
-            interceptView(v);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (View v : views)
+                    interceptView(v);
+            }
+        }).start();
+
     }
 
-    public void registerApapter(BaseQuickAdapter adapter) {
+    public void registerApapter(final BaseQuickAdapter adapter) {
 
         if (loginChunk == null)
             return;
 
-        interceptAdapterItem(adapter);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                interceptAdapterItem(adapter);
+            }
+        }).start();
+
     }
 
-    public void registerAdapterChild(BaseQuickAdapter adapter) {
+    public void registerAdapterChild(final BaseQuickAdapter adapter) {
 
         if (loginChunk == null)
             return;
 
-        interceptAdapterChild(adapter);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                interceptAdapterChild(adapter);
+            }
+        }).start();
+
     }
 
     private void interceptView(final View v) {
@@ -57,6 +71,10 @@ public class LoginVerify {
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                if (isNeedBreak(view))
+                    return;
+
                 if (!loginChunk.verifyLogin()) {
                     loginChunk.goLogin();
                 } else if (oriClick != null) {
@@ -75,6 +93,10 @@ public class LoginVerify {
         adapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+
+                if (isNeedBreak(view))
+                    return;
+
                 if (!loginChunk.verifyLogin())
                     loginChunk.goLogin();
                 else if (itemClickListener != null) {
@@ -93,6 +115,10 @@ public class LoginVerify {
         adapter.setOnItemChildClickListener(new BaseQuickAdapter.OnItemChildClickListener() {
             @Override
             public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
+
+                if (isNeedBreak(view))
+                    return;
+
                 if (!loginChunk.verifyLogin())
                     loginChunk.goLogin();
                 else if (itemChildClickListener != null) {
@@ -101,4 +127,16 @@ public class LoginVerify {
             }
         });
     }
+
+    protected boolean isNeedBreak(View view) {
+
+        if (view.getTag(KEY) != null) {
+            if (System.currentTimeMillis() - (Long) view.getTag(KEY) < loginChunk.breakTime()) {
+                return true;
+            }
+        }
+        view.setTag(KEY, System.currentTimeMillis());
+        return false;
+    }
+
 }

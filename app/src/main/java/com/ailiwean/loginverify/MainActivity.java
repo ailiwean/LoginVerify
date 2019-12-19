@@ -1,11 +1,11 @@
 package com.ailiwean.loginverify;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.ailiwean.lib.AnLoginVerify;
 import com.ailiwean.lib.LoginChunk;
@@ -14,8 +14,6 @@ import com.ailiwean.lib.annotations.LoginDunk;
 
 
 public class MainActivity extends AppCompatActivity {
-
-
     @LoginDunk
     View centerView;
     @LoginDunk
@@ -38,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        startTime = System.currentTimeMillis();
 
         centerView = findViewById(R.id.centerText);
         centerView2 = findViewById(R.id.centerText2);
@@ -97,8 +96,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        startTime = System.currentTimeMillis();
-
         AnLoginVerify.bind(new LoginChunk() {
             @Override
             public boolean verifyLogin() {
@@ -110,6 +107,11 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "我要去登陆", Toast.LENGTH_SHORT).show();
 
             }
+
+            @Override
+            public long breakTime() {
+                return 1000;
+            }
         }, this);
 
 //        centerView.setOnClickListener(new View.OnClickListener() {
@@ -119,19 +121,23 @@ public class MainActivity extends AppCompatActivity {
 //            }
 //        });
 //
-
-        LoginVerify.get(new LoginChunk() {
-            @Override
-            public boolean verifyLogin() {
-                return false;
-            }
-
-            @Override
-            public void goLogin() {
-                Toast.makeText(MainActivity.this, "我要去登陆", Toast.LENGTH_SHORT).show();
-            }
-        }).registerView(centerView, centerView2, centerView3, centerView4, centerView5, centerView6, centerView7);
-
+//        LoginVerify.get(new LoginChunk() {
+//            @Override
+//            public boolean verifyLogin() {
+//                return false;
+//            }
+//
+//            @Override
+//            public void goLogin() {
+//                Toast.makeText(MainActivity.this, "我要去登陆", Toast.LENGTH_SHORT).show();
+//            }
+//
+//            @Override
+//            public long breakTime() {
+//                return 1000;
+//            }
+//        })
+//                .registerView(centerView, centerView2, centerView3, centerView4, centerView5, centerView6, centerView7);
 
     }
 
