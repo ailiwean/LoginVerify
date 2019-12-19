@@ -1,6 +1,6 @@
 
 # LoginVerify
-非侵入式对点击事件进行验证登陆，延迟反射，避免拉长UI响应。 极度轻量。
+非侵入式对点击事件进行验证登陆，子线程运行，不影响UI绘制
 
 ##### 存在意义
   每个APP几乎都会有一个登陆功能，当然与之对应的某些按钮点击需要验证登陆并跳转到登陆，如果是使用传统的继承OnClick等点击事件类，使用起来总感觉有点不大舒服并且后边有所改动，就需要拿出我们看家本领，复制粘贴了。
@@ -12,23 +12,27 @@
 ```
 public class MyLogin implements LoginChunk {
     
-    
     //验证是否登陆
     @Override
     public boolean verifyLogin() {
         return false;
     }
 
-    
     //去登陆
     @Override
     public void goLogin() {
 
     }
 
+    //点击间隔
+    @Override
+    public long breakTime() {
+        return 1000;
+    }
 }
-
 ```
+如果只想实现屏蔽多次点击效果，就让verifyLogin()返回true即可。
+
  * **步骤二**：
      
    生成一个拦截器，传入第一步中的实例化对象myLogin
@@ -56,8 +60,6 @@ public class MyLogin implements LoginChunk {
 ```
  AnLoginVerify.bind(myLogin, this);
 ```
-可以绑定的类型有Activity，Fragment， 其他Object对象，  其中Activity及Fragment都会在界面绘制完成后才会进行反射操作，这样也保证了UI绘制的及时性。
-
 ###  引入
 都是老司机了， 废话不多说
 
@@ -71,7 +73,7 @@ public class MyLogin implements LoginChunk {
 ```
  
 ```
-    implementation 'com.github.ailiwean:LoginVerify:1.0.1'
+    implementation 'com.github.ailiwean:LoginVerify:1.1.1'
 
 ```
 

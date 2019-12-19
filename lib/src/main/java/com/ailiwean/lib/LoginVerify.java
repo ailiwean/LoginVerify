@@ -99,7 +99,7 @@ public class LoginVerify {
 
                 if (!loginChunk.verifyLogin())
                     loginChunk.goLogin();
-                else if (itemClickListener != null) {
+                else {
                     itemClickListener.onItemClick(adapter, view, position);
                 }
             }
@@ -121,7 +121,7 @@ public class LoginVerify {
 
                 if (!loginChunk.verifyLogin())
                     loginChunk.goLogin();
-                else if (itemChildClickListener != null) {
+                else {
                     itemChildClickListener.onItemChildClick(adapter, view, position);
                 }
             }

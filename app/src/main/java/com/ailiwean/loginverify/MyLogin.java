@@ -11,13 +11,13 @@ public class MyLogin implements LoginChunk {
         return false;
     }
 
-
     //去登陆
     @Override
     public void goLogin() {
 
     }
 
+    //点击间隔
     @Override
     public long breakTime() {
         return 1000;
